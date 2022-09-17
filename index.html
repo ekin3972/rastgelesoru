@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+
+            width: 300px;
+
+
+        }
+
+        div {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="yenisoru">Yeni soru</button>
+    <h2 id="soru"></h2>
+    <div id="input"> <input class="1" id="bigi" type id="number">
+        <input class="1" id="submit" type="submit">
+    </div>
+
+
+
+    <span id="doğru">
+        <h4>
+            Hiç doğrun yok
+        </h4>
+    </span>
+
+
+    <span id="yanlış">
+        <h4>
+            Hiç yanlışın yok
+        </h4>
+    </span>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        let acik = 0;
+        let basma = 0;
+        let doğru = 0;
+        let yanlış = 0;
+
+
+
+
+        $("#yenisoru").click(function () {
+            basma = 0
+            $("#input").slideDown(1000)
+            $(".soru").fadeOut(1)
+            let ilkislem = 0
+            let f1 = Math.floor(Math.random() * +100);
+            let f2 = Math.floor(Math.random() * +100);
+            let f3 = Math.floor(Math.random() * +100);
+            let f4 = Math.floor(Math.random() * +100);
+            let s0 = 0;
+            let s5 = 0;
+            let s7 = 0;
+            let s9 = 0;
+            let s1 = Math.floor((Math.random() * +1000) * (Math.random() - 0.5));
+
+            let s2 = Math.floor(Math.random() * +2);
+
+
+            s9 = Math.floor(Math.random() * +2);
+
+            let s3 = Math.floor(Math.random() * +1000);
+            let s4 = Math.floor(Math.random() * +2);
+
+            s5 = Math.floor(Math.random() * +2);
+
+            let s6 = Math.floor(Math.random() * +1000);
+
+            s7 = Math.floor(Math.random() * +2);
+
+            let s8 = Math.floor(Math.random() * +1000);
+
+            if (s2 == 1) {
+                ilkislem = "+";
+            } else {
+                ilkislem = "-";
+            };
+            if (s0 == 1) {
+                n1 = "+";
+            } else {
+                n1 = "-";
+            };
+            if (s9 == 1) {
+                n2 = "+";
+            } else {
+                n2 = "-";
+            };
+            if (s5 == 1) {
+                n3 = "+";
+            } else {
+                n3 = "-";
+            };
+            if (s7 == 1) {
+                n4 = "+";
+            } else {
+                n4 = "-";
+            };
+            if (s5 == 1) {
+                n5 = "+";
+            } else {
+                n5 = "-";
+            };
+
+
+            acik = eval(ilkislem + "(" + s1 + n2 + s3 + n5 + s6 + n4 + s8 + ")");
+
+            console.log(acik);
+            if (f1 < 6) {
+                $("#soru").text(ilkislem + "(" + s1 + n2 + s3 + n5 + s6 + n4 + s8 + ")");
+            } else { $("#soru").text(ilkislem + "(" + s1 + n2 + s3 + n5 + s6 + n4 + s8 + ")"); }
+
+
+        });
+        let cevap = $("#bilgi").val()
+        console.log(basma);
+        $("#submit").click(function () {
+            if (basma == 0) {
+                if (cevap == acik) {
+
+                    basma = 1;
+                    alert("doğru")
+                    doğru++;
+                    $("#doğru").text("doğru sayın:" + doğru);
+
+                } else {
+
+                    basma = 1;
+
+                    alert("yanlış");
+                    yanlış++;
+                    $("#yanlış").text("yanlış sayın:" + yanlış);
+                };
+
+            }
+
+
+        })
+    </script>
+
+</body>
+
+</html>
