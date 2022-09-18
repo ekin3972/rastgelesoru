@@ -23,7 +23,7 @@
 <body>
     <button id="yenisoru">Yeni soru</button>
     <h2 id="soru"></h2>
-    <div id="input"> <input class="1" id="bigi" type id="number">
+    <div id="input"> <input class="1" id="bilgi" type="number">
         <input class="1" id="submit" type="submit">
     </div>
 
@@ -52,12 +52,15 @@
         let basma = 0;
         let doğru = 0;
         let yanlış = 0;
+        let cevap = 0;
+
 
 
 
 
         $("#yenisoru").click(function () {
             basma = 0
+            $("#bilgi").val("")
             $("#input").slideDown(1000)
             $(".soru").fadeOut(1)
             let ilkislem = 0
@@ -128,30 +131,40 @@
 
 
         });
-        let cevap = $("#bilgi").val()
+
         console.log(basma);
         $("#submit").click(function () {
-            if (basma == 0) {
-                if (cevap == acik) {
 
-                    basma = 1;
-                    alert("doğru")
-                    doğru++;
-                    $("#doğru").text("doğru sayın:" + doğru);
-
-                } else {
-
-                    basma = 1;
-
-                    alert("yanlış");
-                    yanlış++;
-                    $("#yanlış").text("yanlış sayın:" + yanlış);
-                };
-
-            }
+            console.log($("#bilgi").val())
+            if ($("#bilgi").val()) {
+                cevap = $("#bilgi").val();
+                if (basma == 0) {
+                    if (cevap == acik) {
 
 
-        })
+                        basma = 1;
+                        alert("doğru")
+                        doğru++;
+                        $("#doğru").text("doğru sayın:" + doğru);
+
+                    } else {
+                        console.log(cevap);
+                        basma = 1;
+
+                        alert("yanlış");
+                        yanlış++;
+                        $("#yanlış").text("yanlış sayın:" + yanlış);
+                    };
+
+                }
+
+            } else { alert("alan boş"); }
+
+
+
+
+        });
+
     </script>
 
 </body>
